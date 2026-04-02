@@ -21,8 +21,7 @@ namespace StringsAndCollections {
       directoryPath = Console.ReadLine();
       //directoryPath = @"C:\Texts";
       txtFiles = Directory.GetFiles(directoryPath, "*.txt");
-      for (int index = 0; index < txtFiles.Length; index++)
-      {
+      for (int index = 0; index < txtFiles.Length; ++index) {
         filePath = txtFiles[index];
         fileContent = File.ReadAllText(filePath);
         foreach (var pair in mistakesList) {
