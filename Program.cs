@@ -6,13 +6,9 @@ using System.IO;
 namespace StringsAndCollections {
   internal class Program {
     static void Main(string[] args) {
-      string directoryPath;
+      string directoryPath, filePath, fileContent, phonePattern, phoneReplacement;
       string[] txtFiles;
-      string filePath;
-      string fileContent;
       List<string> wrongWords;
-      string phonePattern;
-      string phoneReplacement;
       var mistakesList = new Dictionary<string, List<string>> {
         ["привет"] = new List<string> { "првиет", "пирвет", "превед" },
         ["хорошо"] = new List<string> { "хоршо", "харашо", "хорощо" },
@@ -25,8 +21,9 @@ namespace StringsAndCollections {
       directoryPath = Console.ReadLine();
       //directoryPath = @"C:\Texts";
       txtFiles = Directory.GetFiles(directoryPath, "*.txt");
-      foreach (string currentFile in txtFiles) {
-        filePath = currentFile;
+      for (int index = 0; index < txtFiles.Length; index++)
+      {
+        filePath = txtFiles[index];
         fileContent = File.ReadAllText(filePath);
         foreach (var pair in mistakesList) {
           string correctWord = pair.Key;
